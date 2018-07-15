@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:chamois"
         mc:Ignorable="d"
         Title="Rupicapra" Height="450" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center">
-    <Grid>
-        <DockPanel Name="mainContent" >
+
+        <DockPanel Name="dockPanel" >
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Add tab (test)" Click="MenuItem_Click_1" />
@@ -19,7 +19,8 @@
                     <MenuItem Header="_About" Click="MenuItem_Click_3" />
                 </MenuItem>
             </Menu>
-            <TabControl Name="tabControl" />
+
+        <TabControl Name="tabControl" />
         </DockPanel>
-    </Grid>
+
 </Window>

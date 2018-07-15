@@ -28,6 +28,8 @@ namespace chamois
 
             resultMessages.AppendText(Environment.NewLine);
             resultMessages.AppendText(new Random().Next().ToString());
+
+            resultsGrid.Items.Clear();
         }
     }
 }

@@ -5,25 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:chamois"
         mc:Ignorable="d"
-        Title="ConnectionManagerDialog" Height="450" Width="800">
+        Title="ConnectionManagerDialog" Height="450.783" Width="689.652">
     <Grid Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" />
-        <Grid Grid.Column="1" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="40" />
-            </Grid.RowDefinitions>
-            <GroupBox Grid.Row="0" Header="Server information"/>
-            <GroupBox Grid.Row="1" Header="User information"/>
-            <Button Grid.Row="2" >Save</Button>
-            <Button Grid.Row="2" >Connect</Button>
-            <Button Grid.Row="2" >Cancel</Button>
-        </Grid>
+        <ListBox Grid.Column="0" Margin="10" />
+        <DockPanel Grid.Column="1" Margin="10" LastChildFill="True">
+            <GroupBox Header="Server information" DockPanel.Dock="Top">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Margin" Value="0,5,0,5"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <ComboBox Width="200" HorizontalAlignment="Right" SelectedIndex="0">
+                        <ComboBoxItem>PostgreSQL</ComboBoxItem>
+                        <ComboBoxItem>MySQL</ComboBoxItem>
+                        <ComboBoxItem>Microsoft SQL Server</ComboBoxItem>
+                    </ComboBox>
+                    <TextBox Width="200" HorizontalAlignment="Right">Hostname</TextBox>
+                    <TextBox Width="200" HorizontalAlignment="Right">Port</TextBox>
+                    <TextBox Width="200" HorizontalAlignment="Right">Database</TextBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="User information" DockPanel.Dock="Top">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Margin" Value="0,5,0,5"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBox Width="200" HorizontalAlignment="Right">Username</TextBox>
+                    <TextBox Width="200" HorizontalAlignment="Right">Password</TextBox>
+                </StackPanel>
+            </GroupBox>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0,10,0,0">
+                <Button Margin="0,0,10,0" MinWidth="80">Save</Button>
+                <Button Margin="0,0,10,0" MinWidth="80">Connect</Button>
+                <Button Margin="0,0,0,0" MinWidth="80">Cancel</Button>
+            </StackPanel>
+
+            <Frame ></Frame>
+
+        </DockPanel>
 
     </Grid>
 </Window>

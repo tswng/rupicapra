@@ -40,14 +40,14 @@ namespace chamois
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-            //DialogResult result = ConnectionManagerDialog
-
+            ConnectionManagerDialog dialog = new ConnectionManagerDialog();
+            bool? result = dialog.ShowDialog();
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
             AboutDialog dialog = new AboutDialog();
-            dialog.ShowDialog();
+            bool? result = dialog.ShowDialog();
         }
     }
 }
