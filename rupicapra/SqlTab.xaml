@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:chamois"
              mc:Ignorable="d" 
-             MaxHeight="100" MaxWidth="100">
-    <Grid>
+             >
+    <Grid Margin="2">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="5" />
@@ -17,12 +17,19 @@
         <TabControl Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TabItem Name="resultGridTab" Header="Query results">
                 <Grid>
-                    <DataGrid Name="resultsGrid" />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="24" />
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Grid.Column="0" Name="resultsGrid" Margin="2" />
+                    <StackPanel Grid.Column="1" Margin="2">
+                        <Button Name="buttonExportData" >E</Button>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Name="resultMessagesTab" Header="Messages">
-                <Grid>
-                    <TextBox Name="resultMessages">here would be written text messages</TextBox>
+                <Grid Margin="2">
+                    <TextBox Name="resultMessages">database error codes go here</TextBox>
                 </Grid>
             </TabItem>
         </TabControl>
