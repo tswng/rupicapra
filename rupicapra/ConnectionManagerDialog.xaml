@@ -5,41 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:chamois"
         mc:Ignorable="d"
-        Title="ConnectionManagerDialog" Height="450.783" Width="689.652">
+        Title="ConnectionManagerDialog" MinHeight="450" MinWidth="700" Height="450" Width="700">
     <Grid Margin="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="250" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" Margin="10" />
+        <DockPanel Grid.Column="0" LastChildFill="True">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0,0,0,10">
+                <Button Margin="10,0,0,0" MinWidth="20">+</Button>
+                <Button Margin="10,0,0,0" MinWidth="20">-</Button>
+            </StackPanel>
+            <ListView  Margin="10" Name="listConnections" />
+        </DockPanel>
         <DockPanel Grid.Column="1" Margin="10" LastChildFill="True">
             <GroupBox Header="Server information" DockPanel.Dock="Top">
-                <StackPanel>
-                    <StackPanel.Resources>
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
                         <Style TargetType="TextBox">
                             <Setter Property="Margin" Value="0,5,0,5"/>
                         </Style>
-                    </StackPanel.Resources>
-                    <ComboBox Width="200" HorizontalAlignment="Right" SelectedIndex="0">
+                        <Style TargetType="ComboBox">
+                            <Setter Property="Margin" Value="0,5,0,5"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">Database driver:</Label>
+                    <ComboBox Grid.Column="1" Grid.Row="0" SelectedIndex="0" VerticalAlignment="Center" Name="driverCombobox">
                         <ComboBoxItem>PostgreSQL</ComboBoxItem>
                         <ComboBoxItem>MySQL</ComboBoxItem>
                         <ComboBoxItem>Microsoft SQL Server</ComboBoxItem>
                     </ComboBox>
-                    <TextBox Width="200" HorizontalAlignment="Right">Hostname</TextBox>
-                    <TextBox Width="200" HorizontalAlignment="Right">Port</TextBox>
-                    <TextBox Width="200" HorizontalAlignment="Right">Database</TextBox>
-                </StackPanel>
+
+                    <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">Hostname:</Label>
+                    <TextBox  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Name="textBoxHostname"></TextBox>
+
+                    <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">Port:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Name="textBoxPort"></TextBox>
+
+                    <Label Grid.Column="0" Grid.Row="3" VerticalAlignment="Center">Database:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Name="textBoxDatabase"></TextBox>
+                </Grid>
             </GroupBox>
             <GroupBox Header="User information" DockPanel.Dock="Top">
-                <StackPanel>
-                    <StackPanel.Resources>
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
                         <Style TargetType="TextBox">
                             <Setter Property="Margin" Value="0,5,0,5"/>
                         </Style>
-                    </StackPanel.Resources>
-                    <TextBox Width="200" HorizontalAlignment="Right">Username</TextBox>
-                    <TextBox Width="200" HorizontalAlignment="Right">Password</TextBox>
-                </StackPanel>
+                        <Style TargetType="PasswordBox">
+                            <Setter Property="Margin" Value="0,5,0,5"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">Username:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Name="textBoxUsername"></TextBox>
+
+                    <Label Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">Password:</Label>
+                    <PasswordBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Name="textBoxPassword"></PasswordBox>
+
+                    <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">Save password:</Label>
+                    <CheckBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Name="checkBoxSavePassword"></CheckBox>
+                </Grid>
             </GroupBox>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="0,10,0,0">
                 <Button Margin="0,0,10,0" MinWidth="80">Save</Button>
@@ -47,7 +93,7 @@
                 <Button Margin="0,0,0,0" MinWidth="80">Cancel</Button>
             </StackPanel>
 
-            <Frame ></Frame>
+            <Rectangle ></Rectangle>
 
         </DockPanel>
 
